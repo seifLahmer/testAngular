@@ -1,0 +1,15 @@
+<form [formGroup]="stageForm" (ngSubmit)="onSubmit()">
+    <input formControlName="titre" placeholder="Titre">
+    <div *ngIf="stageForm.get('titre')?.invalid && stageForm.get('titre')?.touched">Titre requis</div>
+  
+    <input formControlName="description" placeholder="Description">
+    <div *ngIf="stageForm.get('description')?.invalid && stageForm.get('description')?.touched">Min 3 caractères</div>
+  
+    <input formControlName="entreprise" placeholder="Entreprise">
+    <div *ngIf="stageForm.get('entreprise')?.invalid && stageForm.get('entreprise')?.touched">Commence par majuscule</div>
+  
+    <button type="submit" [disabled]="stageForm.invalid">Ajouter</button>
+  </form>
+
+
+  

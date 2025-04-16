@@ -1,0 +1,20 @@
+{
+  "stages": [
+    {
+      "id": "fe53",
+      "titre": "Eya",
+      "description": "nnn",
+      "entreprise": "Neoxam",
+      "disponible": true,
+      "nbrInteresse": 0
+    },
+    {
+      "id": "2fc7",
+      "titre": "Eya",
+      "description": "Trr",
+      "entreprise": "Neoxam",
+      "disponible": true,
+      "nbrInteresse": 0
+    }
+  ]
+}
