@@ -1,15 +1,44 @@
 <form [formGroup]="stageForm" (ngSubmit)="onSubmit()">
-    <input formControlName="titre" placeholder="Titre">
-    <div *ngIf="stageForm.get('titre')?.invalid && stageForm.get('titre')?.touched">Titre requis</div>
-  
-    <input formControlName="description" placeholder="Description">
-    <div *ngIf="stageForm.get('description')?.invalid && stageForm.get('description')?.touched">Min 3 caractères</div>
-  
-    <input formControlName="entreprise" placeholder="Entreprise">
-    <div *ngIf="stageForm.get('entreprise')?.invalid && stageForm.get('entreprise')?.touched">Commence par majuscule</div>
-  
-    <button type="submit" [disabled]="stageForm.invalid">Ajouter</button>
-  </form>
 
+  <!-- Titre -->
+  <label for="titre">Titre</label>
+  <input id="titre" formControlName="titre" placeholder="Titre">
+  <div *ngIf="stageForm.get('titre')?.hasError('required') && stageForm.get('titre')?.touched">
+    Le titre est requis
+  </div>
 
-  
+  <!-- Description -->
+  <label for="description">Description</label>
+  <input id="description" formControlName="description" placeholder="Description">
+  <div *ngIf="stageForm.get('description')?.hasError('required') && stageForm.get('description')?.touched">
+    La description est requise
+  </div>
+  <div *ngIf="stageForm.get('description')?.hasError('minlength') && stageForm.get('description')?.touched">
+    La description doit contenir au moins 3 caractères
+  </div>
+
+  <!-- Entreprise -->
+  <label for="entreprise">Entreprise</label>
+  <input id="entreprise" formControlName="entreprise" placeholder="Entreprise">
+  <div *ngIf="stageForm.get('entreprise')?.hasError('required') && stageForm.get('entreprise')?.touched">
+    Le nom de l’entreprise est requis
+  </div>
+  <div *ngIf="stageForm.get('entreprise')?.hasError('pattern') && stageForm.get('entreprise')?.touched">
+    Le nom doit commencer par une majuscule
+  </div>
+
+  <!-- Disponible -->
+  <label for="disponible">
+    <input id="disponible" type="checkbox" formControlName="disponible">
+    Disponible
+  </label>
+
+  <!-- Nombre d'intéressés -->
+  <label for="nbrInteresse">Nombre d’intéressés</label>
+  <input id="nbrInteresse" type="number" formControlName="nbrInteresse" readonly>
+
+  <!-- Bouton Ajouter -->
+  <button type="submit" [disabled]="stageForm.invalid">
+    Ajouter
+  </button>
+</form>
