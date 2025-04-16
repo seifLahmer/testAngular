@@ -20,7 +20,9 @@ export class AddStageIngComponent implements OnInit {
     this.stageForm = this.fb.group({
       titre: ['', Validators.required],
       description: ['', [Validators.required, Validators.minLength(3)]],
-      entreprise: ['', Validators.required]
+      entreprise: ['', Validators.required],
+      disponible: [true],
+      nbrInteresse: [0]
     });
   }
 
